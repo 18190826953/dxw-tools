@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置请求头部的示例</title>
+</head>
+<body>
+<div id="content"></div>
+<button id="fetchButton">点击访问接口</button>
+
+<script>
+    document.getElementById('fetchButton').addEventListener('click', function() {
+        // 请求头部信息
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer YourAccessTokenHere'); // 替换为您的授权信息
+        headers.append('dxw', 'ddddd'); // 替换为您的授权信息
+
+        // 设置 Fetch 请求的配置项，包括 headers
+        const requestOptions = {
+            method: 'GET', // 请求方法
+            headers: headers // 设置请求头部
+        };
+
+        // 发起 Fetch 请求
+        fetch('/static-page', requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                window.sessionStorage.setItem('dddxw', 'dddx123123w');
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    });
+</script>
+</body>
+</html>
