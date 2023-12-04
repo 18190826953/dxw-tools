@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccountManagementControllerll {
     @GetMapping("api/goStraight/addAccountManagement123123")
     public Object addAccountManagement() throws Exception {
+
         return "1231223123";
     }
 }
